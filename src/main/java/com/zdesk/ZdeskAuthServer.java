@@ -18,10 +18,10 @@ import javax.sql.DataSource;
 import java.util.Arrays;
 
 @SpringBootApplication
-public class DemoOauth2Application {
+public class ZdeskAuthServer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoOauth2Application.class, args);
+		SpringApplication.run(ZdeskAuthServer.class, args);
 	}
 
 	@Bean
@@ -47,8 +47,9 @@ public class DemoOauth2Application {
 						username -> {
 							Account acct = new Account();
 							acct.setUsername(username);
-							if ( username.equals("user")) acct.setPassword("password");
-							else acct.setPassword(passwordEncoder().encode("password"));
+							/*if ( username.equals("user")) acct.setPassword("password");
+							else acct.setPassword(passwordEncoder().encode("password"));*/
+							acct.setPassword("password");
 							acct.setFirstName(username);
 							acct.setLastName("LastName");
 							acct.grantAuthority("ROLE_USER");

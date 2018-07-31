@@ -48,6 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .and().httpBasic().and()
                 .csrf().disable();
+        
+        http.headers().frameOptions().sameOrigin();
     }
 
     @Override
